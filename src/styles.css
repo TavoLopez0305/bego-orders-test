@@ -1,3 +1,4 @@
+@import "bootstrap-icons/font/bootstrap-icons.css";
 /* varaibles globales de colores */
 :root {
 
@@ -47,6 +48,7 @@ body {
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding-inline: var(--container-padding);
+  padding-block-start: var(--container-padding);
 }
 
 /* Tablet */

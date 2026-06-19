@@ -1,0 +1,32 @@
+.contenedor-header{
+    width: 100%;
+}
+
+.contendor-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem;
+}
+
+.contendor-box h2{
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.bi-chevron-left{
+    color: var(--color-text);
+    font-size: 1.3rem;
+}
+
+.bi-bell{
+    color: var(--color-primary);
+    font-size: 1.3rem;
+}
+.btn-icon{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}

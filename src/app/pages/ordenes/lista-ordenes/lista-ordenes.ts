@@ -1,9 +1,14 @@
 import { Component, inject, OnInit, signal} from '@angular/core';
 import { OrdersService } from '../../../core/services/orders.service';
 import { Orden } from '../../../core/models/orden.model';
+
+//componentes 
+import { HeaderOrdenes } from '../../../shared/components/header-ordenes/header-ordenes';
+import { NavegacionOrdenes } from '../../../shared/components/navegacion-ordenes/navegacion-ordenes';
+import { BuscadorOrdenes } from '../../../shared/components/buscador-ordenes/buscador-ordenes';
 @Component({
   selector: 'app-lista-ordenes',
-  imports: [],
+  imports: [HeaderOrdenes,NavegacionOrdenes,BuscadorOrdenes],
   templateUrl: './lista-ordenes.html',
   styleUrl: './lista-ordenes.css',
 })
@@ -24,7 +29,7 @@ export class ListaOrdenes implements OnInit {
       // console.log(response);
 
        this.ordenes.set(response.result);
-       
+
        console.log(this.ordenes);
      },
      error: (error) => {
