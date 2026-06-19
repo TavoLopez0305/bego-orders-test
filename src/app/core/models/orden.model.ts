@@ -1,6 +1,6 @@
 import { Destino } from "./destino.model";
 
-export interface Order {
+export interface Orden {
   _id: string;
   status: number;
   order_number: string;

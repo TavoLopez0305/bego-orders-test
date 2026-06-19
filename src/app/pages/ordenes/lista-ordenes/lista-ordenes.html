@@ -1,0 +1,19 @@
+<h1>Lista de órdenes</h1>
+
+@for (orden of ordenes(); track orden._id) {
+
+  <div class="card">
+
+    <h3>{{ orden.order_number }}</h3>
+
+    <p>{{ orden.status_string }}</p>
+
+    <p>{{ orden.type }}</p>
+
+    <p>{{ orden.destinations[0].nickname }}</p>
+
+    <p>{{ orden.destinations[1].nickname }}</p>
+
+  </div>
+
+}

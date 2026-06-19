@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+/* varaibles globales de colores */
+:root {
+
+  /* Colores */
+  --color-primary: #FFEE00;
+  --color-text: #EDEDED;
+  --color-accent: #0C7DED;
+
+  --color-bg: #000000;
+  --color-card: #080B11;
+  --color-border: #20242A;
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --container-padding: 24px;
+
+  /* Bordes */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Transiciones */
+  --transition: 0.3s ease;
+}
+
+/* Normalize casero */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+}
+
+/* maximo view  */
+.contenedor {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-inline: var(--container-padding);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 24px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: 32px;
+  }
+}
