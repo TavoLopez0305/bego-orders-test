@@ -9,7 +9,7 @@
 
   --color-bg: #000000;
   --color-card: #080B11;
-  --color-border: #20242A;
+  --color-border: #2e3233;
 
   /* Layout */
   --container-max-width: 1200px;
@@ -63,4 +63,34 @@ body {
   :root {
     --container-padding: 32px;
   }
+}
+
+/* Grid de tarjetas */
+.contenedor-grid{
+    display: grid;
+    gap: 1.5rem;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Mobile */
+@media (max-width: 767px){
+    .contenedor-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px){
+    .contenedor-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px){
+    .contenedor-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

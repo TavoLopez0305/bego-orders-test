@@ -1,0 +1,162 @@
+.card-orden{
+
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    
+}
+
+.numero-orden{
+
+    font-size:1.3rem;
+    font-weight:600;
+    color: #969798;
+}
+.numero-orden span{
+    color:var(--color-text);
+}
+
+.contenido-card{
+    min-height:300px;
+    border:1px solid var(--color-border);
+    border-radius:24px;
+    /* background: linear-gradient(66.07deg, rgba(8, 12, 15, 0.5) 5.1%, rgba(85, 85, 85, 0) 100%);  */
+    overflow:hidden;
+    background-color: #111517;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.header-card{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+
+    border-bottom: 1px solid var(--color-border);
+}
+.tipo-transporte{
+    display: flex;
+    gap: .5rem;
+}
+.estatus-transporte{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+.punto-estado{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.main-card{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    
+}
+
+.ruta-item{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.icono-ruta{
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    margin-top: .5rem;
+}
+
+.info-ruta{
+    flex: 1;
+}
+
+.info-ruta small{
+    color: #6C6C6C;
+    font-size: .7rem;
+}
+
+.info-ruta h4{
+    color: var(--color-text);
+    font-size: 1rem;
+    margin-top: .25rem;
+}
+
+.info-ruta p{
+    color: #969798;
+    font-size: .85rem;
+    margin-top: .25rem;
+}
+
+.fecha-ruta{
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.fecha-ruta span{
+    color: #969798;
+    font-size: .75rem;
+}
+
+.footer-card{
+
+    display:flex;
+    align-items:flex-end;
+    margin-top:auto;
+    gap: 2rem;
+}
+.btn-pickup{
+    flex:1;
+    height:56px;
+    border:none;
+    background:var(--color-primary);
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+    border-radius:0 28px 25px 25px;
+    max-width: 200px;
+    font-size: 13px;
+}
+.btn-resumen{
+    min-width:130px;
+    height:56px;
+    border:none;
+    background:var(--color-primary);
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:.75rem;
+    border-radius:28px 0 25px 25px;
+    margin-left:auto;
+    font-size:12px;
+}
+.btn-resumen i{
+
+    font-size:16px;
+
+    line-height:1;
+}
+
+.btn-pickup,
+.btn-resumen{
+    transition: all .25s ease;
+}
+
+.btn-pickup:hover,
+.btn-resumen:hover{
+
+    transform: translateY(-2px);
+
+    background:#fff35c;
+
+    box-shadow:
+        0 0 15px rgba(255,238,0,.25);
+}
+

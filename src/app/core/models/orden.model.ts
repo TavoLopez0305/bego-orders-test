@@ -7,5 +7,6 @@ export interface Orden {
   type: string;
   destinations: Destino[];
   status_string: string;
+  status_class:string;
   driver_thumbnail: string | null;
 }

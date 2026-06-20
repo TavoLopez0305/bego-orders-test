@@ -6,9 +6,13 @@ import { Orden } from '../../../core/models/orden.model';
 import { HeaderOrdenes } from '../../../shared/components/header-ordenes/header-ordenes';
 import { NavegacionOrdenes } from '../../../shared/components/navegacion-ordenes/navegacion-ordenes';
 import { BuscadorOrdenes } from '../../../shared/components/buscador-ordenes/buscador-ordenes';
+
+//-------------------
+import { TarjetaOrden } from '../../../shared/components/tarjeta-orden/tarjeta-orden';
+
 @Component({
   selector: 'app-lista-ordenes',
-  imports: [HeaderOrdenes,NavegacionOrdenes,BuscadorOrdenes],
+  imports: [HeaderOrdenes,NavegacionOrdenes,BuscadorOrdenes,TarjetaOrden],
   templateUrl: './lista-ordenes.html',
   styleUrl: './lista-ordenes.css',
 })

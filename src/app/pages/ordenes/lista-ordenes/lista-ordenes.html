@@ -7,23 +7,16 @@
 
   <app-buscador-ordenes />
 
-<h1>Lista de órdenes</h1>
+  <section class="contenedor-grid">
 
-@for (orden of ordenes(); track orden._id) {
+      @for(orden of ordenes(); track orden._id){
 
-  <div class="card">
+          <app-tarjeta-orden
+              [orden]="orden">
+          </app-tarjeta-orden>
 
-    <h3>{{ orden.order_number }}</h3>
+      }
 
-    <p>{{ orden.status_string }}</p>
+  </section>
 
-    <p>{{ orden.type }}</p>
-
-    <p>{{ orden.destinations[0].nickname }}</p>
-
-    <p>{{ orden.destinations[1].nickname }}</p>
-
-  </div>
-
-}
 </div>
