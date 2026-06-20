@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, output} from '@angular/core';
 
 @Component({
   selector: 'app-buscador-ordenes',
@@ -10,14 +10,16 @@ import { Component, signal } from '@angular/core';
 export class BuscadorOrdenes {
 
   textoBusqueda = signal('');
+  busquedaChange = output<string>();
 
   buscar(event: Event): void {
 
-    const valor = (event.target as HTMLInputElement).value;
+    const valor =
+      (event.target as HTMLInputElement).value;
 
     this.textoBusqueda.set(valor);
 
-    console.log(valor);
+    this.busquedaChange.emit(valor);
 
   }
 

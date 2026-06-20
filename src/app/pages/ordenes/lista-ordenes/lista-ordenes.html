@@ -5,11 +5,13 @@
 
   <app-navegacion-ordenes />
 
-  <app-buscador-ordenes />
+  <app-buscador-ordenes
+    (busquedaChange)="textoBusqueda.set($event)">
+  </app-buscador-ordenes>
 
   <section class="contenedor-grid">
 
-      @for(orden of ordenes(); track orden._id){
+      @for(orden of ordenesFiltradas(); track orden._id){
 
           <app-tarjeta-orden
               [orden]="orden">

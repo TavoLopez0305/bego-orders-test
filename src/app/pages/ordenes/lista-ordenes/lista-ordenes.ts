@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal} from '@angular/core';
+import { Component, inject, OnInit, signal, computed} from '@angular/core';
 import { Router } from '@angular/router';
 import { OrdersService } from '../../../core/services/orders.service';
 import { Orden } from '../../../core/models/orden.model';
@@ -23,8 +23,10 @@ export class ListaOrdenes implements OnInit {
   private readonly router = inject(Router);
 
   ordenes = signal<Orden[]>([]);
+  textoBusqueda = signal('');
   mostrarError = signal(false);
   mensajeError = signal('');
+  
 
   ngOnInit(): void {
 
@@ -58,11 +60,28 @@ export class ListaOrdenes implements OnInit {
 
        this.ordenes.set(response.result);
 
-       console.log(this.ordenes);
+      //  console.log(this.ordenes);
      },
      error: (error) => {
       console.log(error);
      }
     });
   }
+  ordenesFiltradas = computed(() => {
+    const texto =
+      this.textoBusqueda()
+        .trim()
+        .toLowerCase();
+
+    if (!texto) {
+      return this.ordenes();
+    }
+
+    return this.ordenes().filter(orden =>
+      orden.order_number
+        ?.toLowerCase()
+        .includes(texto)
+    );
+
+  });
 }

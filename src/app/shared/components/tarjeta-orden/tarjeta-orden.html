@@ -95,9 +95,16 @@
         
         <div class="footer-card">
             @if (orden().status === 1) {
-                 <button class="btn-pickup">
-                     It's time for pickup
-                </button>
+                 <button
+                    class="btn-pickup"
+                    [disabled]="!puedeNavegar()"
+                    (click)="navegar()">
+                    @if(puedeNavegar()){
+                        Navigate
+                    } @else {
+                        Start pickup in {{ contador() }}
+                    }
+                    </button>
                 }
             <button class="btn-resumen" (click)="verDetalle()">
                 <span>Resume</span>
