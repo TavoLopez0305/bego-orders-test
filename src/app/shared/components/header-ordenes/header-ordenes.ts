@@ -13,7 +13,7 @@ export class HeaderOrdenes {
   private readonly router = inject(Router);
 
   regresar(): void {
-    window.history.back();
+    this.router.navigate(['/ordenes']);
   }
 
   mostrarNotificaciones(): void {
