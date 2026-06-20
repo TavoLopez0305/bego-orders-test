@@ -1,1 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap-icons/font/bootstrap-icons.css";
+/* varaibles globales de colores */
+:root {
+
+  /* Colores */
+  --color-primary: #FFEE00;
+  --color-text: #EDEDED;
+  --color-accent: #0C7DED;
+
+  --color-bg: #000000;
+  --color-card: #080B11;
+  --color-border: #2e3233;
+
+  /* Layout */
+  --container-max-width: 1200px;
+  --container-padding: 24px;
+
+  /* Bordes */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Transiciones */
+  --transition: 0.3s ease;
+}
+
+/* Normalize casero */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* maximo view  */
+.contenedor {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-inline: var(--container-padding);
+  padding-block-start: var(--container-padding);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 24px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: 32px;
+  }
+}
+
+/* Grid de tarjetas */
+.contenedor-grid{
+    display: grid;
+    gap: 1.5rem;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Mobile */
+@media (max-width: 767px){
+    .contenedor-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px){
+    .contenedor-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px){
+    .contenedor-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

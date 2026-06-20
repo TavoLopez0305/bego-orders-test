@@ -1,0 +1,46 @@
+<div class="tarjeta-datos">
+
+  <div
+    class="encabezado"
+    (click)="toggle()">
+
+    <span>
+      {{ tipo() === 'pickup' ? 'Pickup Data' : 'Dropoff Data' }}
+    </span>
+
+    <i
+      class="bi"
+      [class.bi-chevron-up]="expandido()"
+      [class.bi-chevron-down]="!expandido()">
+    </i>
+
+  </div>
+
+    <div
+      class="contenido-wrapper"
+      [class.expandido]="expandido()">
+
+      <div class="contenido">
+
+        <p class="direccion">
+          {{ detalle().direccion }}
+        </p>
+
+        <p class="fecha">
+          {{ detalle().fechaInicio | date:'dd MMMM yyyy' }}
+        </p>
+
+        <p class="telefono">
+          {{ detalle().telefono }}
+        </p>
+
+        <p class="correo">
+          {{ detalle().correo }}
+        </p>
+
+      </div>
+
+    </div>
+  
+
+</div>

@@ -1,0 +1,41 @@
+.contenedor-buscador{
+
+    display:flex;
+    align-items:center;
+    gap:0.75rem;
+
+    padding:1rem 0;
+
+    border-bottom:1px solid var(--color-border);
+    margin-top: 1rem;
+
+}
+
+.bi-search{
+
+    color:var(--color-text);
+
+    font-size:1rem;
+
+}
+
+input{
+
+    flex:1;
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+
+    color:var(--color-text);
+
+    font-size:0.95rem;
+
+}
+
+input::placeholder{
+
+    color:#7A7A7A;
+
+}

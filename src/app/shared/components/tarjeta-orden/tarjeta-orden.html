@@ -1,0 +1,116 @@
+<div class="card-orden">
+
+    <h3 class="numero-orden">
+        Order <span>#{{ orden().order_number }}</span>
+    </h3>
+
+    <div class="contenido-card">
+        <div class="header-card">
+           <div class="tipo-transporte">
+                <i
+                    class="bi"
+                    [class]="iconoTransporte()">
+                </i>
+                <span>
+                    {{ tipoTransporte() }}
+                </span>
+            </div>
+            <div class="estatus-transporte">
+                <span
+                    class="punto-estado"
+                    [style.background]="colorEstado()">
+                </span>
+                <span>
+                    {{ estatus() }}
+                </span>
+            </div>
+        </div>
+        <div class="main-card">
+            <div class="ruta-item">
+                <div class="icono-ruta">
+                    <i class="bi bi-truck"></i>
+                </div>
+                <div class="info-ruta">
+                    <small>
+                        PICKUP
+                    </small>
+                    <h4>
+                        {{ pickup()?.nickname || 'Recolección' }}
+                    </h4>
+                    <p>
+                        {{ cortarTexto(pickup()?.address, 35) }}
+                    </p>
+                </div>
+                
+                <div class="fecha-ruta">
+
+                    <span>
+                        {{ formatearFecha(pickup()?.start_date) }}
+                    </span>
+
+                    <p>
+                        {{ formatearHora(pickup()?.start_date) }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="ruta-item">
+
+                <div class="icono-ruta">
+                    <i class="bi bi-geo-alt"></i>
+                </div>
+
+                <div class="info-ruta">
+
+                    <small>
+                        DROPOFF
+                    </small>
+
+                    <h4>
+                        {{ dropoff()?.nickname || 'Entrega' }}
+                    </h4>
+
+                    <p>
+                        {{ cortarTexto(dropoff()?.address, 35) }}
+                    </p>
+
+                </div>
+
+                <div class="fecha-ruta">
+
+                    <span>
+                        {{ formatearFecha(dropoff()?.start_date) }}
+                    </span>
+
+                    <p>
+                        {{ formatearHora(dropoff()?.start_date) }}
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="footer-card">
+            @if (orden().status === 1) {
+                 <button
+                    class="btn-pickup"
+                    [disabled]="!puedeNavegar()"
+                    (click)="navegar()">
+                    @if(puedeNavegar()){
+                        Navigate
+                    } @else {
+                        Start pickup in {{ contador() }}
+                    }
+                    </button>
+                }
+            <button class="btn-resumen" (click)="verDetalle()">
+                <span>Resume</span>
+                <i class="bi bi-eye"></i>
+            </button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,32 @@
+
+<div class="contenedor">
+
+  <app-header-ordenes />
+
+  <app-navegacion-ordenes />
+
+  <app-buscador-ordenes
+    (busquedaChange)="textoBusqueda.set($event)">
+  </app-buscador-ordenes>
+
+  <section class="contenedor-grid">
+
+      @for(orden of ordenesFiltradas(); track orden._id){
+
+          <app-tarjeta-orden
+              [orden]="orden">
+          </app-tarjeta-orden>
+
+      }
+
+  </section>
+
+  @if(mostrarError()){
+
+  <app-error-modal
+    [mensaje]="mensajeError()">
+  </app-error-modal>
+
+}
+
+</div>

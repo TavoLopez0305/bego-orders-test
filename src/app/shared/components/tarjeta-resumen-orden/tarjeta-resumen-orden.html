@@ -1,0 +1,87 @@
+<div class="tarjeta-resumen">
+
+  <div class="encabezado">
+
+    <span class="referencia">
+      Referencia {{ detalle().referencia }}
+    </span>
+
+    <h2 class="orden">
+      Order #{{ detalle().numeroOrden }}
+    </h2>
+
+  </div>
+
+  <div class="ruta">
+
+    <div class="punto-superior" (click)="seleccionarDestino.emit('pickup')">
+
+    <div class="contenedor-icono contenedor-icono-activo">
+        <div class="icono">
+            <i class="bi bi-truck"></i>
+        </div>
+    </div>
+
+      <div class="informacion">
+        <span class="tipo">
+          PICKUP
+        </span>
+        <h3>
+          {{ detalle().pickup.nombre }}
+        </h3>
+        <p>
+          {{ detalle().pickup.direccion }}
+        </p>
+
+        <span class="estado">
+            <div
+                class="punto"
+                [style.background-color]="obtenerColorEstado(detalle().pickup.estado)">
+            </div>
+            {{ detalle().pickup.estado }}
+
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="linea-ruta"></div>
+
+    <div class="punto-inferior" (click)="seleccionarDestino.emit('dropoff')">
+
+     <div class="contenedor-icono contenedor-icono-inactivo">
+        <div class="icono-vacio"></div>
+     </div>
+
+      <div class="informacion">
+
+        <span class="tipo">
+          DROPOFF
+        </span>
+
+        <h3>
+          {{ detalle().dropoff.nombre }}
+        </h3>
+
+        <p>
+          {{ detalle().dropoff.direccion }}
+        </p>
+
+        <span class="estado">
+
+            <div
+                class="punto"
+                [style.background-color]="obtenerColorEstado(detalle().dropoff.estado)">
+            </div>
+            {{ detalle().dropoff.estado }}
+
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

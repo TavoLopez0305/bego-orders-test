@@ -1,0 +1,24 @@
+<nav class="nav">
+
+    <ul class="nav-lista">
+
+        @for(tab of tabs; track tab.id){
+
+            <li>
+
+                <button
+                    class="tab"
+                    [class.active]="tabActiva() === tab.id"
+                    (click)="seleccionarTab(tab.id)">
+
+                    {{ tab.nombre }}
+
+                </button>
+
+            </li>
+
+        }
+
+    </ul>
+
+</nav>
