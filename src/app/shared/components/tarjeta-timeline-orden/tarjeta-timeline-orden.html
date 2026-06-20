@@ -1,0 +1,75 @@
+<div class="tarjeta-timeline">
+
+  <div class="avatar-contenedor">
+
+    <img
+      [src]="detalle().foto || 'assets/img/avatar-default.jpg'"
+      alt="Driver"
+      class="avatar">
+
+  </div>
+
+  <div class="hora">
+
+    10:30 PM
+
+  </div>
+
+  <div class="timeline">
+
+    @for(estado of estadosVisibles(); track $index){
+
+      <div class="item-timeline">
+
+          <div class="columna-icono">
+
+          <div
+              class="circulo"
+              [class.circulo-activo]="estado.activo">
+
+              @if(estado.activo){
+              <i class="bi bi-check"></i>
+              }
+
+          </div>
+
+          @if(!$last){
+              <div class="linea-estado"></div>
+          }
+
+          </div>
+
+          <span
+          class="texto-estado"
+          [class.texto-inactivo]="!estado.activo">
+
+          {{ estado.nombre }}
+
+          </span>
+
+      </div>
+    }
+    @if(detalle().estados.length > 4){
+
+      <button
+        class="btn-ver-mas"
+        (click)="toggleMostrarTodo()">
+
+        {{ mostrarTodo() ? 'Show less' : 'Show more' }}
+
+      </button>
+
+    }
+
+  </div>
+
+ <button
+    class="btn-rastrear"
+    [disabled]="!obtenerPuedeRastrear(detalle().estados)"
+    (click)="rastrearOrden()">
+
+    Track Order
+
+  </button>
+
+</div>

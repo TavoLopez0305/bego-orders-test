@@ -57,3 +57,6 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+*****Notas********
+- Debido a que el API proporcionado no cuenta con un endpoint GET /orders/{id}, la validación se realiza comparando el identificador recibido por ruta contra la información recuperada del endpoint disponible. En un entorno productivo se consumiría un endpoint específico por identificador para evitar transferencias innecesarias y garantizar consistencia de datos.

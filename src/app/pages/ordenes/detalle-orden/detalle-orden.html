@@ -1,1 +1,36 @@
-<p>detalle-orden works!</p>
+<div class="contenedor">
+
+  <app-header-ordenes />
+
+  @if(loading()){
+
+    <app-loading
+      mensaje="Obtaining order information">
+    </app-loading>
+
+  }
+  @else{
+
+    <app-tarjeta-resumen-orden
+      [detalle]="resumenOrden()!"
+      (seleccionarDestino)="destinoSeleccionado.set($event)">
+    </app-tarjeta-resumen-orden>
+
+    <br>
+
+    <app-tarjeta-timeline-orden
+      [detalle]="timelineOrden()!">
+    </app-tarjeta-timeline-orden>
+  }
+
+  @if(destinoActual()){
+    <app-tarjeta-datos-destino
+      [detalle]="destinoActual()!"
+      [tipo]="destinoSeleccionado()">
+    </app-tarjeta-datos-destino>
+
+  }
+
+</div>
+<br>
+<br>

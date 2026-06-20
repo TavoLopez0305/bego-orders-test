@@ -17,4 +17,9 @@ export class OrdersService {
   obeteneOrdenDetalle(){
     return this.http.get(`${this.apiUrl}/orders`);
   }
+  obtenerOrden(id: string) {
+    return this.http.get(
+      `${this.apiUrl}/orders/${id}`
+    );
+  }
 }

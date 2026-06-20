@@ -1,5 +1,6 @@
-import { Component, input,computed } from '@angular/core';
+import { Component, inject, input,computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 import { Orden } from '../../../core/models/orden.model';
 import { Destino } from '../../../core/models/destino.model';
@@ -26,6 +27,8 @@ export class TarjetaOrden {
   readonly formatearFecha = formatearFecha;
   readonly formatearHora = formatearHora;
   readonly cortarTexto = cortarTexto;
+
+  private readonly router = inject(Router);
 
   tiposTransporte: Record<string, string> = {
     FTL: 'bi-truck',
@@ -74,5 +77,11 @@ export class TarjetaOrden {
   dropoff = computed<Destino | undefined>(() =>
     this.orden().destinations[1]
   );
+  verDetalle(): void {
+    this.router.navigate([
+      '/ordenes',
+      this.orden()._id
+    ]);
+  }
 
 }
