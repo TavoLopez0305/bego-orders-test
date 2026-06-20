@@ -10,6 +10,8 @@ import { BuscadorOrdenes } from '../../../shared/components/buscador-ordenes/bus
 import { ErrorModal } from '../../../shared/components/error-modal/error-modal';
 //-------------------
 import { TarjetaOrden } from '../../../shared/components/tarjeta-orden/tarjeta-orden';
+// utils
+import { sanitizarBusqueda } from '../../../shared/utils/texto.util';
 
 @Component({
   selector: 'app-lista-ordenes',
@@ -67,20 +69,21 @@ export class ListaOrdenes implements OnInit {
      }
     });
   }
+
   ordenesFiltradas = computed(() => {
     const texto =
-      this.textoBusqueda()
-        .trim()
-        .toLowerCase();
+      sanitizarBusqueda(this.textoBusqueda());
 
     if (!texto) {
       return this.ordenes();
     }
 
     return this.ordenes().filter(orden =>
-      orden.order_number
-        ?.toLowerCase()
-        .includes(texto)
+
+      sanitizarBusqueda(
+        orden.order_number ?? ''
+      ).includes(texto)
+
     );
 
   });

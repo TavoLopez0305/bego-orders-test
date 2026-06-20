@@ -11,3 +11,12 @@ export function cortarTexto(
     ? texto.slice(0, limite) + '...'
     : texto;
 }
+
+export function sanitizarBusqueda(valor: string): string {
+
+  return valor
+    .trim()
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, '');
+
+}
