@@ -1,32 +1,42 @@
-
 <div class="contenedor">
 
-  <app-header-ordenes />
+  @if(loading()){
 
-  <app-navegacion-ordenes />
+    <app-loading
+      mensaje="Loading application...">
+    </app-loading>
 
-  <app-buscador-ordenes
-    (busquedaChange)="textoBusqueda.set($event)">
-  </app-buscador-ordenes>
+  }
+  @else {
 
-  <section class="contenedor-grid">
+    <app-header-ordenes />
+
+    <app-navegacion-ordenes />
+
+    <app-buscador-ordenes
+      (busquedaChange)="textoBusqueda.set($event)">
+    </app-buscador-ordenes>
+
+    <section class="contenedor-grid">
 
       @for(orden of ordenesFiltradas(); track orden._id){
 
-          <app-tarjeta-orden
-              [orden]="orden">
-          </app-tarjeta-orden>
+        <app-tarjeta-orden
+          [orden]="orden">
+        </app-tarjeta-orden>
 
       }
 
-  </section>
+    </section>
+
+  }
 
   @if(mostrarError()){
 
-  <app-error-modal
-    [mensaje]="mensajeError()">
-  </app-error-modal>
+    <app-error-modal
+      [mensaje]="mensajeError()">
+    </app-error-modal>
 
-}
+  }
 
 </div>

@@ -8,6 +8,7 @@ import { HeaderOrdenes } from '../../../shared/components/header-ordenes/header-
 import { NavegacionOrdenes } from '../../../shared/components/navegacion-ordenes/navegacion-ordenes';
 import { BuscadorOrdenes } from '../../../shared/components/buscador-ordenes/buscador-ordenes';
 import { ErrorModal } from '../../../shared/components/error-modal/error-modal';
+import { Loading } from '../../../shared/components/loading/loading';
 //-------------------
 import { TarjetaOrden } from '../../../shared/components/tarjeta-orden/tarjeta-orden';
 // utils
@@ -15,7 +16,7 @@ import { sanitizarBusqueda } from '../../../shared/utils/texto.util';
 
 @Component({
   selector: 'app-lista-ordenes',
-  imports: [HeaderOrdenes,NavegacionOrdenes,BuscadorOrdenes,TarjetaOrden,ErrorModal],
+  imports: [HeaderOrdenes,NavegacionOrdenes,BuscadorOrdenes,TarjetaOrden,ErrorModal,Loading],
   templateUrl: './lista-ordenes.html',
   styleUrl: './lista-ordenes.css',
 })
@@ -28,7 +29,7 @@ export class ListaOrdenes implements OnInit {
   textoBusqueda = signal('');
   mostrarError = signal(false);
   mensajeError = signal('');
-  
+  loading = signal(true);
 
   ngOnInit(): void {
 
@@ -55,18 +56,31 @@ export class ListaOrdenes implements OnInit {
 }
 
   obtnerOrdenes(){
+    this.loading.set(true);
+
     this.orderservice.obtenerOrdenes()
     .subscribe({
      next: (response: any) =>{
       // console.log(response);
 
        this.ordenes.set(response.result);
+       setTimeout(() => {
+        this.loading.set(false);
+      }, 500);
 
       //  console.log(this.ordenes);
      },
      error: (error) => {
-      console.log(error);
-     }
+        console.log(error);
+        this.loading.set(false);
+        this.mensajeError.set(
+          'An error occurred while loading the application.'
+        );
+        this.mostrarError.set(true);
+        setTimeout(() => {
+          this.mostrarError.set(false);
+        }, 3000);
+      }
     });
   }
 
