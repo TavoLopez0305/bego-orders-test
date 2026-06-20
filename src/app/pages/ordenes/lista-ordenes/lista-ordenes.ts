@@ -73,6 +73,7 @@ export class ListaOrdenes implements OnInit {
   ordenesFiltradas = computed(() => {
     const texto =
       sanitizarBusqueda(this.textoBusqueda());
+      // console.log('texto', texto);
 
     if (!texto) {
       return this.ordenes();

@@ -17,6 +17,7 @@ export class BuscadorOrdenes {
     const valor =
       (event.target as HTMLInputElement).value;
 
+    // console.log('hijo', valor)
     this.textoBusqueda.set(valor);
 
     this.busquedaChange.emit(valor);
