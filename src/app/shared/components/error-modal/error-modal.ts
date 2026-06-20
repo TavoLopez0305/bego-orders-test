@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input} from '@angular/core';
 
 @Component({
   selector: 'app-error-modal',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './error-modal.css',
 })
 export class ErrorModal {
-
+  mensaje = input.required<string>();
 }

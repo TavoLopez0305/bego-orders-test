@@ -163,15 +163,14 @@ export class DetalleOrden implements OnInit{
   }
 
   private mostrarError(): void {
+  localStorage.setItem(
+    'error_orden',
+    'The order information could not be retrieved. Please try again later.'
+  );
 
-  this.loading.set(false);
-  this.error.set(true);
+  this.router.navigate(['/ordenes']);
 
-  setTimeout(() => {
-    window.history.back();
-  }, 2000);
-
-  }
+}
 
   destinoActual = computed(() => {
 
